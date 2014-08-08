@@ -31,6 +31,8 @@
 #import "SOImageBrowserView.h"
 #import <MediaPlayer/MediaPlayer.h>
 
+#import <Realm/Realm.h>
+
 #define kMessageMaxWidth 240.0f
 
 @interface SOMessagingViewController () <UITableViewDelegate, SOMessageCellDelegate>
@@ -228,7 +230,7 @@
 }
 
 #pragma mark - SOMessaging datasource
-- (NSMutableArray *)messages
+- (RLMArray *)messages
 {
     return nil;
 }
