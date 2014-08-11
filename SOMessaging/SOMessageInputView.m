@@ -92,7 +92,7 @@
     
     self.sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.sendButton.backgroundColor = [UIColor clearColor];
-    [self.sendButton setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]
+    [self.sendButton setTitleColor:[UIColor colorWithRed:0.357 green:0.42 blue:0.447 alpha:1]
                           forState:UIControlStateNormal];
     [self.sendButton setTitleColor:[UIColor colorWithRed:0.0 green:65.0/255.0 blue:136.0/255.0 alpha:1.0]
                           forState:UIControlStateHighlighted];
