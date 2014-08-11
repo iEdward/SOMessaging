@@ -178,9 +178,9 @@
     NSDate *date = [firstMessageInGroup date];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd MMM, eee, HH:mm"];
+    [formatter setDateFormat:@"⎯ dd MMMM yyyy ⎯"];
     UILabel *label = [[UILabel alloc] init];
-    label.text = [formatter stringFromDate:date];
+    label.text = [[formatter stringFromDate:date] lowercaseString];
     
     label.textColor = [UIColor grayColor];
     label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12];

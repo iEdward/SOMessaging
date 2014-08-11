@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Artur Mkrtchyan" => "mkrtarturdev@gmail.com" }
   s.source_files = 'SOMessaging/*'
+  s.resources = 'SOMessaging/Resources/*'
   s.dependency 'Realm', '0.82.0'
   s.xcconfig = {
     'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/Realm/realm-cocoapods-0.82.0/ios'
