@@ -36,6 +36,7 @@
 #pragma mark - Properties
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) SOMessageInputView *inputView;
+@property (strong, nonatomic) NSMutableArray *conversation;
 
 #pragma mark - Methods
 /**

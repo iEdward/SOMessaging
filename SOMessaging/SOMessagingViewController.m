@@ -45,7 +45,6 @@
 
 @property (strong, nonatomic) UIView *tableViewHeaderView;
 
-@property (strong, nonatomic) NSMutableArray *conversation;
 
 
 @property (strong, nonatomic) SOImageBrowserView *imageBrowser;
@@ -467,4 +466,5 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
+
 @end

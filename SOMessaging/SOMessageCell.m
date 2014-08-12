@@ -282,7 +282,7 @@ static BOOL cellIsDragging;
     
     if (!CGSizeEqualToSize(userRect.size, CGSizeZero) && self.userImage) {
         if (balloonFrame.size.height < userRect.size.height) {
-            balloonFrame.size.height = userRect.size.height;
+            //balloonFrame.size.height = userRect.size.height;
         }
     }
     
@@ -294,13 +294,14 @@ static BOOL cellIsDragging;
     self.textView.scrollEnabled = NO;
     self.textView.dataDetectorTypes = UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber;
     
-
-    
+    /*
     if (self.userImageView.autoresizingMask & UIViewAutoresizingFlexibleTopMargin) {
         userRect.origin.y = balloonFrame.origin.y + balloonFrame.size.height - userRect.size.height;
     } else {
         userRect.origin.y = 0;
     }
+    */
+    userRect.origin.y = 0;
 
     if (self.message.fromMe) {
         userRect.origin.x = balloonFrame.origin.x + userImageViewLeftMargin + balloonFrame.size.width;
