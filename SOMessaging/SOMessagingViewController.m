@@ -46,7 +46,6 @@
 @property (strong, nonatomic) UIView *tableViewHeaderView;
 
 
-
 @property (strong, nonatomic) SOImageBrowserView *imageBrowser;
 @property (strong, nonatomic) MPMoviePlayerViewController *moviePlayerController;
 
@@ -176,10 +175,8 @@
     id<SOMessage> firstMessageInGroup = [self.conversation[section] firstObject];
     NSDate *date = [firstMessageInGroup date];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"⎯ dd MMMM yyyy ⎯"];
     UILabel *label = [[UILabel alloc] init];
-    label.text = [[formatter stringFromDate:date] lowercaseString];
+    label.text = [[self.formatter stringFromDate:date] lowercaseString];
     
     label.textColor = [UIColor grayColor];
     label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12];
@@ -191,6 +188,16 @@
     [view addSubview:label];
     
     return view;
+}
+
+- (NSDateFormatter *)formatter {
+    static NSDateFormatter *formatter;
+    static dispatch_once_t dispatchOnceToken;
+    dispatch_once(&dispatchOnceToken, ^{
+        formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"⎯ dd MMMM yyyy ⎯"; // twitter date format
+    });
+    return formatter;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
