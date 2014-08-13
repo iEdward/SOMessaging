@@ -338,10 +338,8 @@ static BOOL cellIsDragging;
     self.containerView.frame = frm;
     
     // Adjusing time label
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm"];
     self.timeLabel.frame = CGRectZero;
-    self.timeLabel.text = [formatter stringFromDate:self.message.date];
+    self.timeLabel.text = [self.formatter stringFromDate:self.message.date];
 
     [self.timeLabel sizeToFit];
     CGRect timeLabel = self.timeLabel.frame;
@@ -349,6 +347,16 @@ static BOOL cellIsDragging;
     self.timeLabel.frame = timeLabel;
     self.timeLabel.center = CGPointMake(self.timeLabel.center.x, self.containerView.center.y);
     
+}
+
+- (NSDateFormatter *)formatter {
+    static NSDateFormatter *formatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"HH:mm";
+    });
+    return formatter;
 }
 
 - (CGRect)usedRectForWidth:(CGFloat)width
@@ -437,12 +445,8 @@ static BOOL cellIsDragging;
     self.mediaImageView.layer.mask = layer;
     [self.mediaImageView setNeedsDisplay];
     
-    
-    // Adjusing time label
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm"];
     self.timeLabel.frame = CGRectZero;
-    self.timeLabel.text = [formatter stringFromDate:self.message.date];
+    self.timeLabel.text = [self.formatter stringFromDate:self.message.date];
     
     [self.timeLabel sizeToFit];
     CGRect timeLabel = self.timeLabel.frame;
